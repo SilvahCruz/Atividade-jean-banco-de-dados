@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #161516;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    width: 20%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 300px;
+    
+}
+
+#esqueci:hover {
+    text-decoration: underline;
+}
+
+#esqueci{
+    text-decoration: none;
+    color: black;
+}
+
+#name {
+    border-radius: 6px;
+    width: 70%;
+    height: 22px;
+}
+
+#email {
+    border-radius: 6px;
+    width: 70%;
+    height: 20px;
+}
+
+#botao {
+     margin-top: 30px;
+     width: 250px;
+     height: 60px;
+     border-radius: 6px;
+     background-color: darkblue;
+    color: white;
+}
+
+.relembrar {
+    bottom: 120px;
+}
+
+.divcheck {
+    position: relative;
+    left: 60px;
+    top: 36px;
+}
+    
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+
+
+
+
