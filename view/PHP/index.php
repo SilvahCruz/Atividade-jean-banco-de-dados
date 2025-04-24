@@ -13,10 +13,10 @@
         <div class="container">
             <h1>Atividade Jean</h1>
         <form id="form" action="/controller/CadastroController.php" method="POST">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <label for="name">CPF:</label>
+                <input type="text" id="name" name="CPF" required><br><br>
                 <label for="email">Senha:</label>
-                <input type="number" id="email" name="email" required>
+                <input type="number" id="email" name="senha" required>
                 <div class="divcheck">
                     <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
                 </div>
