@@ -26,8 +26,7 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 300px;
-    
+    margin-top: 150px;
 }
 
 #esqueci:hover {
@@ -42,7 +41,7 @@ h1 {
 #name {
     border-radius: 6px;
     width: 70%;
-    height: 22px;
+    height: 20px;
 }
 
 #email {

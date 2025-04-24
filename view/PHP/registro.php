@@ -14,12 +14,16 @@
         <div class="container">
             <h1>Atividade Jean</h1>
         <form id="form" action="../../controller/CadastroController.php" method="POST">
-                <label for="name">Nome:</label>
+                <label for="">Nome:</label>
                 <input type="text" id="name" name="fullname" required><br><br>
-                <label for="email">Senha:</label>
-                <input type="number" id="email" name="senha" required><br><br>
-                <label for="name">Email:</label>
-                <input type="email" id="email" name="mail" required>
+                <label for="">CPF:</label>
+                <input type="number" id="email" name="CPF" required><br><br>
+                <label for="">Endereço:</label>
+                <input type="text" id="email" name="endereco" required><br><br>
+                <label for="">Senha:</label>
+                <input type="password" id="email" name="senha" required><br><br>
+                <label for="">Email:</label>
+                <input type="" id="email" name="email" required>
                 <div class="divcheck">
                     <input type="checkbox" id="checkbox" name="check" value="checkbox">
                 </div>
