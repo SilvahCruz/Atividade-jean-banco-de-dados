@@ -9,7 +9,7 @@ if ($_POST){
     $email = $_POST['email'];
 
  
-    $result = register($fullname, $senha, $email, $CPF, $endereco);
+    $result = register($fullname, $CPF, $endereco, $senha, $email);
 
     echo $result;
  
