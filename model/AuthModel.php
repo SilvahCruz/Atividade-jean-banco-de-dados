@@ -1,24 +1,23 @@
 <?php
+session_start();
 
-function get($CPF, $senha) {
-    $conn = new usePDO; 
+require_once '../service/conexao.php';
+
+function autenticarUsuario($CPF, $senha) {
+    $conn = new usePDO(); 
     $instance = $conn->getInstance(); 
 
-    $sql = "SELECT u.senha FROM usuarios u
-            INNER JOIN pessoas p ON p.id = u.id_pessoa
-            WHERE p.CPF = ?";
+    $sql = "SELECT u.senha, u.id, p.nome FROM usuario u
+        INNER JOIN pessoa p ON p.FK_usuario = u.id
+        WHERE p.CPF = ?";
     $stmt = $instance->prepare($sql);
     $stmt->execute([$CPF]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    if ($user) {
-        if (password_verify($senha, $user['senha'])) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
+    if ($user && password_verify($senha, $user['senha'])) {
+        return $user; // retorna os dados do usuário.
     }
+
+    return false;
 }

@@ -13,7 +13,7 @@
 <body>
         <div class="container">
             <h1>Atividade Jean</h1>
-        <form id="form" action="../PHP/tela-inicial.php" method="POST">
+        <form id="form" action="/controller/AuthController.php" method="POST">
                 <label for="name">CPF:</label>
                 <input type="text" id="name" name="CPF" required><br><br>
                 <label for="email">Senha:</label>

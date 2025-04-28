@@ -1,19 +1,19 @@
 <?php
+session_start();
+require_once '../model/AuthModel.php';
 
-require '../model/AuthModel.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $CPF = $_POST['CPF'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
-if ($_POST){
-    $CPF = $_POST['CPF'];
-    $senha = $_POST['senha'];
-   
+    $usuario = autenticarUsuario($CPF, $senha);
 
- 
-    $result = get($CPF, $senha);
-
- 
-    if ($result) {
-        echo "Login realizado com sucesso!";
+    if ($usuario) {
+        $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['nome'] = $usuario['nome'];
+        header('Location: ../PHP/tela-inicial.php');
+        exit;
     } else {
-        echo "Algum dado não é coerente.";
+        echo "<script>alert('CPF ou senha incorretos!'); window.location.href = '../PHP/index.php';</script>";
     }
 }
