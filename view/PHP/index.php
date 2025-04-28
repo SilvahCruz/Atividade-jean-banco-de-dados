@@ -23,7 +23,7 @@
                 <p class="relembrar">Relembre-me</p>
                 <a href="email.php" target="_self" id="esqueci">esqueceu a senha?</a>
                 <a href="./registro.php">Registrar-se</a>
-                <input type="submit" value="Logar" id="botao" onclick="logar()" action="../model/AuthModel.php">
+                <input type="submit" value="Logar" id="botao" onclick="logar()">
         </div>  
 
         </form>
