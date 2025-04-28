@@ -28,7 +28,7 @@
                     <input type="checkbox" id="checkbox" name="check" value="checkbox">
                 </div>
                 <p>Relembre-me</p>
-                <button type="submit" value="Registrar" name="logar" id="botao">registrar</button>
+                <button type="submit" value="Registrar" name="cadastrar" id="botao">registrar</button>
         </div>  
 
         </form>

@@ -8,9 +8,8 @@ if ($_POST){
    
 
  
-    $result = register($CPF, $senha);
+    $result = get($CPF, $senha);
 
-    echo $result;
  
     if ($result) {
         echo "Login realizado com sucesso!";
