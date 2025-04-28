@@ -7,7 +7,7 @@
     <title> Login Atividade Jean</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../CSS/style.css'>
-    <script src='index.js'></script>
+    <script src='../JS/login.js'></script>
 </head>
 <body>
         <div class="container">
@@ -23,7 +23,7 @@
                 <p class="relembrar">Relembre-me</p>
                 <a href="email.php" target="_self" id="esqueci">esqueceu a senha?</a>
                 <a href="./registro.php">Registrar-se</a>
-                <input type="submit" value="Logar" id="botao">
+                <input type="submit" value="Logar" id="botao" onclick="logar()" action="../model/AuthModel.php">
         </div>  
 
         </form>

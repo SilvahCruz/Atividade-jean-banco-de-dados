@@ -7,7 +7,7 @@
     <title>Homepage</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../CSS/telainicial.css'>
-    <script src='main.js'></script>
+    <script src='telainicial.js'></script>
 </head>
 <body>
     <h1>Bem vindo a Homepage</h1>
