@@ -29,12 +29,28 @@ h1 {
     margin-top: 150px;
 }
 
-#esqueci:hover {
-    text-decoration: underline;
+#esqueci {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-#esqueci{
+#esqueci:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+#registro {
+    color: black;
     text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    margin-top: 20px;
+}
+
+#registro:hover {
+    text-decoration: underline;
     color: black;
 }
 

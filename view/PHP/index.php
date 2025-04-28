@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -21,8 +22,8 @@
                     <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
                 </div>
                 <p class="relembrar">Relembre-me</p>
-                <a href="email.php" target="_self" id="esqueci">esqueceu a senha?</a>
-                <a href="./registro.php">Registrar-se</a>
+                <a href="./email.php" target="_self" id="esqueci">esqueceu a senha?</a>
+                <a href="./registro.php" target="_self" id="registro">Registrar-se</a>
                 <input type="submit" value="Logar" id="botao" onclick="logar()">
         </div>  
 
