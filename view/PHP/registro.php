@@ -17,17 +17,13 @@
                 <label for="">Nome:</label>
                 <input type="text" id="name" name="fullname" required><br><br>
                 <label for="">CPF:</label>
-                <input type="number" id="email" name="CPF" required><br><br>
+                <input type="number" id="CPF" name="CPF" required><br><br>
                 <label for="">Endereço:</label>
-                <input type="text" id="email" name="endereco" required><br><br>
+                <input type="text" id="end" name="endereco" required><br><br>
                 <label for="">Senha:</label>
-                <input type="password" id="email" name="senha" required><br><br>
+                <input type="password" id="senha" name="senha" required><br><br>
                 <label for="">Email:</label>
                 <input type="" id="email" name="email" required>
-                <div class="divcheck">
-                    <input type="checkbox" id="checkbox" name="check" value="checkbox">
-                </div>
-                <p>Relembre-me</p>
                 <button type="submit" value="Registrar" name="cadastrar" id="botao">registrar</button>
         </div>  
 

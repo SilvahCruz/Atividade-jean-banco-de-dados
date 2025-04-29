@@ -1,6 +1,7 @@
 <?php
 
 require '../model/CadastroModel.php';
+
 if ($_POST){
     $fullname = $_POST['fullname'];
     $CPF = $_POST['CPF'];

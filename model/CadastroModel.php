@@ -1,27 +1,23 @@
-<?php
+<?php 
 
 require '../service/conexao.php';
- 
-function register($fullname, $CPF, $endereco, $senha, $email){
-    $conn = new usePDO; //obrigatorio
-    $instance = $conn->getInstance(); //obrigatorio
- 
 
-    //criptografar a senha
+function register($fullname, $CPF, $endereco, $senha, $email){
+    $conn = new usePDO;
+    $instance = $conn->getInstance();
+
     $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
- 
-    //cadastro usuário
+
+    //cadastro de usuario
     $sql = "INSERT INTO usuario (nome, senha, email) VALUES (?, ?, ?)";
     $stmt = $instance->prepare($sql);
     $stmt->execute([$fullname, $hashed_password, $email]);
-   $idUsuario = $instance->lastInsertID();
+    $id_usuario = $instance->lastInsertId();
 
-
-  //cadastro pessoa
+    //cadastro de pessoa
     $sql = "INSERT INTO pessoa (nome, CPF, endereco, FK_usuario) VALUES (?, ?, ?, ?)";
     $stmt = $instance->prepare($sql);
-    $stmt->execute([$fullname, $CPF, $endereco, $idUsuario]);
+    $stmt->execute([$fullname, $CPF, $endereco, $id_usuario]);
 
-
-    return $idUsuario;
+    return $id_usuario;
 }

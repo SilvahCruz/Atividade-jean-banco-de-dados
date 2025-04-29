@@ -8,12 +8,12 @@
     <title> Login Atividade Jean</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../CSS/style.css'>
-    <script src='../JS/login.js'></script>
+    <script src='../JS/main.js'></script>
 </head>
 <body>
         <div class="container">
             <h1>Atividade Jean</h1>
-        <form id="form" action="/controller/AuthController.php" method="POST">
+        <form id="form" action="../controller/AuthController.php" method="POST">
                 <label for="name">CPF:</label>
                 <input type="text" id="name" name="CPF" required><br><br>
                 <label for="email">Senha:</label>
@@ -24,10 +24,9 @@
                 <p class="relembrar">Relembre-me</p>
                 <a href="./email.php" target="_self" id="esqueci">esqueceu a senha?</a>
                 <a href="./registro.php" target="_self" id="registro">Registrar-se</a>
-                <input type="submit" value="Logar" id="botao" onclick="logar()">
+                <input type="submit" value="Logar" id="botao">
         </div>  
 
         </form>
 </body>
-
 </html>
