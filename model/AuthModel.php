@@ -16,7 +16,7 @@ function autenticarUsuario($CPF, $senha) {
     
     if ($user && password_verify($senha, $user['senha'])) {
         return $user;
-    }
+    }   
 
     return false;
 }

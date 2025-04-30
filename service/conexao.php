@@ -27,14 +27,26 @@ class usePDO
         }
     }
 }
- 
-$conexao = new mysqli($servidor, $usuario, $senha, $banco);
 
 
-if ($conexao->connect_error) {
-    die("Falha na conexão: " . $conexao->connect_error);
+function getInstance2() {
+    $servidor = "localhost";
+    $usuario = "root";
+    $senha = "";
+    $banco = "atividade_jean";
+    
+    // Criar conexão
+    $conexao = new mysqli($servidor, $usuario, $senha, $banco);
+    
+    // Verificar conexão
+    if ($conexao->connect_error) {
+        die("Falha na conexão: " . $conexao->connect_error);
+    }
+    
+    // Definir charset para UTF-8
+    $conexao->set_charset("utf8");
 }
 
 
-$conexao->set_charset("utf8");
+    
  
