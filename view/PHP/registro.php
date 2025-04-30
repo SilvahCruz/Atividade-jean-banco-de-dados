@@ -24,7 +24,16 @@
                 <input type="password" id="senha" name="senha" required><br><br>
                 <label for="">Email:</label>
                 <input type="" id="email" name="email" required>
-                <button type="submit" value="Registrar" name="cadastrar" id="botao">registrar</button>
+                <button type="submit" value="Registrar" name="cadastrar" id="botao">Registrar</button>
+                <?php
+                session_start();
+                    if (!empty($_SESSION['mensagemdeconclusao'])): ?>
+                        <p class="mensagemdeconclusao"><?= $_SESSION['mensagemdeconclusao']; unset($_SESSION['mensagemdeconclusao']); ?></p>
+                <?php endif; ?>
+
+                <?php if (!empty($_SESSION['mensagemdeconclusao'])): ?>
+                    <p class="mensagemdesucesso"><?= $_SESSION['mensagemdeconclusao']; unset($_SESSION['mensagemdeconclusao']); ?></p>
+                <?php endif; ?>
         </div>  
 
         </form>

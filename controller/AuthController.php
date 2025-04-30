@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 require_once '../model/AuthModel.php';
@@ -12,11 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nome'] = $usuario['nome'];
         header('Location: ../view/PHP/tela-inicial.php');
     } else {
-        echo "<script>
-            alert('CPF ou senha incorretos!');
-            window.location.href = '../PHP/index.php';
-        </script>";
-    }
-    
-    exit;
+        $_SESSION['mensagem'] = "A senha ou o usuário não coincidem!";
+        header('Location: ../view/PHP/index.php');
+        exit();
+    } 
 }

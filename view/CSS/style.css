@@ -104,6 +104,28 @@ h1 {
     left: 60px;
     top: 36px;
 }
+
+.mensagemdesucesso {
+    width: 100%; padding: 12px; 
+        border-radius: 8px;
+        background-color: #4dff74;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center; 
+        margin-bottom: 15px;
+}
+
+.mensagemdeerro {
+        width: 100%; padding: 12px; 
+        border-radius: 8px;
+        background-color: #ff4d4f;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center; 
+        margin-bottom: 15px;
+}
     
 
 form {
