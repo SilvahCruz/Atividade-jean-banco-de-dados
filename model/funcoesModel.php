@@ -1,6 +1,8 @@
 <?php
 // Arquivo com funções para manipulação de dados
+include_once '../service/conexao.php';
 
+$conexao = getInstance2();
 // Função para buscar todos os emails
 function buscarEmails($conexao) {
     $emails = array();
