@@ -10,12 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($usuario) {
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['nome'] = $usuario['nome'];
+        header('Location: ../view/PHP/tela-inicial.php');
     } else {
         echo "<script>
             alert('CPF ou senha incorretos!');
             window.location.href = '../PHP/index.php';
         </script>";
     }
-    header('Location: ../PHP/tela-inicial.php');
+    
     exit;
 }
