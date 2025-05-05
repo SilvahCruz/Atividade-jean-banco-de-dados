@@ -20,3 +20,16 @@ function autenticarUsuario($CPF, $senha) {
 
     return false;
 }
+
+function recuperacao($email) {
+    
+    $conn = new usePDO(); 
+    $instance = $conn->getInstance();
+    $code = "123"; 
+
+    $sql = "INSERT INTO code (nome, codigo, email) VALUES (?, ?, ?)";
+    $stmt = $instance->prepare($sql);
+    $stmt->execute([$email, $code, $email]);
+
+    return false;
+}

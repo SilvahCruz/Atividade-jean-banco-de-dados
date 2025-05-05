@@ -1,10 +1,7 @@
 <?php
 // Incluir arquivos de conexão e funções
-require_once __DIR__ . '/../../service/conexao.php';
-require_once __DIR__ . '../../model/funcoesModel.php';
-
-$conexao = getInstance2();
-
+require_once 'conexao.php';
+require_once '../email/funcoes.php';
 // Inicializar variáveis
 $emailSelecionado = null;
 $emails = buscarEmails($conexao);
@@ -19,7 +16,7 @@ if (isset($_GET['id'])) {
         marcarComoLido($conexao, $id);
     }
 }
-?>  
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

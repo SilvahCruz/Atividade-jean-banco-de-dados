@@ -20,4 +20,37 @@ function register($fullname, $CPF, $endereco, $senha, $email){
     $stmt->execute([$fullname, $CPF, $endereco, $id_usuario]);
 
     return $id_usuario;
+
+    //reivindicar o email
+    $sql = "INSERT INTO code (nome, codigo, FK_usuario_code) VALUES (?, ?, ?, ?)";
+    $stmt = $instance->prepare($sql);
+    $stmt->execute([]);
+
 }
+
+function gerarCodigoAleatorio($tamanho = 8) {
+    $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $codigo = '';
+    for ($i = 0; $i < $tamanho; $i++) {
+        $codigo .= $caracteres[rand(0, strlen($caracteres) - 1)];
+    }
+    return $codigo;
+}
+
+function criarCodigoDeRecuperacao($conexao, $idUsuario) {
+    $codigo = gerarCodigoAleatorio();
+
+    $sql = "INSERT INTO code (codigo, FK_usuario_code) VALUES (?, ?)";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("si", $codigo, $idUsuario);
+
+    if ($stmt->execute()) {
+        return $codigo; // você pode usar isso para exibir ou enviar por email
+    } else {
+        return false;
+    }
+}
+
+
+
+?>

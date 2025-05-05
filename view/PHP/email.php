@@ -13,10 +13,10 @@
     
         <div class="container">
             <h1>Atividade Jean</h1>
-        <form id="form">
+        <form id="form" action="../../controller/recuperacaoController.php" method="POST">
                 <label for="name">Email:</label>
                 <input type="email" id="email" name="email">
-                <input type="button" value="Logar" id="botao" onclick="enviar()">
+                <button type="submit" value="Logar" id="botao">aa</button>
         </div>  
 
         </form>
