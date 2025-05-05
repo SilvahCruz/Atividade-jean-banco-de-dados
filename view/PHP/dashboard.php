@@ -1,7 +1,7 @@
 <?php
 // Incluir arquivos de conexão e funções
-require_once '/service/conexao.php';
-require_once '../../model/FuncoesModel.php';
+require_once __DIR__ . '/../../service/conexao.php';
+require_once __DIR__ . '../../model/funcoesModel.php';
 
 $conexao = getInstance2();
 
