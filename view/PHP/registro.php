@@ -30,10 +30,6 @@
                     if (!empty($_SESSION['mensagemdeconclusao'])): ?>
                         <p class="mensagemdeconclusao"><?= $_SESSION['mensagemdeconclusao']; unset($_SESSION['mensagemdeconclusao']); ?></p>
                 <?php endif; ?>
-
-                <?php if (!empty($_SESSION['mensagemdeconclusao'])): ?>
-                    <p class="mensagemdesucesso"><?= $_SESSION['mensagemdeconclusao']; unset($_SESSION['mensagemdeconclusao']); ?></p>
-                <?php endif; ?>
         </div>  
 
         </form>

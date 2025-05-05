@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
         marcarComoLido($conexao, $id);
     }
 }
-?>
+?>  
 
 <!DOCTYPE html>
 <html lang="pt-br">
