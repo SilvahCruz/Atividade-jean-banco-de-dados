@@ -22,7 +22,7 @@ function register($fullname, $CPF, $endereco, $senha, $email){
     return $id_usuario;
 
     //reivindicar o email
-    $sql = "INSERT INTO code (nome, codigo, FK_usuario_code) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO code (nome, code, FK_usuario_code) VALUES (?, ?, ?, ?)";
     $stmt = $instance->prepare($sql);
     $stmt->execute([]);
 
@@ -40,7 +40,7 @@ function gerarCodigoAleatorio($tamanho = 8) {
 function criarCodigoDeRecuperacao($conexao, $idUsuario) {
     $codigo = gerarCodigoAleatorio();
 
-    $sql = "INSERT INTO code (codigo, FK_usuario_code) VALUES (?, ?)";
+    $sql = "INSERT INTO code (code, FK_usuario_code) VALUES (?, ?)";
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("si", $codigo, $idUsuario);
 

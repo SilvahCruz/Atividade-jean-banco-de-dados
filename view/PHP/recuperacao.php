@@ -13,12 +13,12 @@
     
         <div class="container">
             <h1>Atividade Jean</h1>
-        <form id="form" action="index.html" method="post">
+        <form id="form" action="index.html" method="post" action="../../controller/FuncaoDeValidacaoController.php">
                 <label for="number">Nova senha:</label>
                 <input type="number" id="name" name="name" required><br><br>
                 <label for="email">Confirmar Senha:</label>
                 <input type="number" id="email" name="email" required>
-                <input type="submit" value="Alterar Senha" id="botao" onclick="concluir()">
+                <input type="submit" value="Alterar Senha" id="botao">
         </div>  
 
         </form>

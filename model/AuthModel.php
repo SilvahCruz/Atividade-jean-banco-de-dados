@@ -25,9 +25,10 @@ function recuperacao($email) {
     
     $conn = new usePDO(); 
     $instance = $conn->getInstance();
-    $code = "123"; 
+    $code = rand(100000, 999999); 
+    
 
-    $sql = "INSERT INTO code (nome, codigo, email) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO code (nome, code, email) VALUES (?, ?, ?)";
     $stmt = $instance->prepare($sql);
     $stmt->execute([$email, $code, $email]);
 

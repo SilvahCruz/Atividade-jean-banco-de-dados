@@ -16,7 +16,7 @@
         <form id="form" action="../../controller/recuperacaoController.php" method="POST">
                 <label for="name">Email:</label>
                 <input type="email" id="email" name="email">
-                <button type="submit" value="Logar" id="botao">aa</button>
+                <button type="submit" value="Logar" id="botao">verificar email</button>
         </div>  
 
         </form>
