@@ -1,32 +1,43 @@
 <?php
 
-session_start();
+//session_start();
 require_once '../service/conexao.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
-    $codigo = $_POST['code'] ?? '';
-
-    if ($email && $codigo) {
+    function verificarCode($codigo) {
         $conn = new usePDO(); 
         $instance = $conn->getInstance();
 
-        // Busca o código mais recente para o email
-        $sql = "SELECT code FROM code WHERE email = ? ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT * FROM code WHERE code = ? ORDER BY id DESC LIMIT 1";
         $stmt = $instance->prepare($sql);
-        $stmt->execute([$email]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->execute([$codigo]);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $_SESSION["usuario"] = $usuario;
+        return $usuario;
+}
+ 
+function atualizarSenha($SenhaNova) {
+    $conn = new usePDO(); 
+    $instance = $conn->getInstance();
 
-        if ($row && $row['code'] == $codigo) {
-            // Código válido, redireciona
-            $_SESSION['email_validado'] = $email; // Pode usar para manter a sessão
-            header('Location: ../view/PHP/recuperacao.php');
-            exit;
-        } else {
-            $erro = "Código inválido.";
-        }
-    } else {
-        $erro = "Preencha todos os campos.";
-    }
+    $senha_hash = password_hash($SenhaNova, PASSWORD_DEFAULT);
+        $email = $_SESSION['usuario']['email'];
+        print_r($_SESSION);
+        $sql = "UPDATE usuario SET senha = ? WHERE email = ?";
+        $stmt = $instance->prepare($sql);
+        return $stmt->execute([$senha_hash, $email]);
+}
+
+function recuperacao($email) {
+    
+    $conn = new usePDO(); 
+    $instance = $conn->getInstance();
+    $code = rand(100000, 999999); 
+    
+
+    $sql = "INSERT INTO code (nome, code, email) VALUES (?, ?, ?)";
+    $stmt = $instance->prepare($sql);
+    $stmt->execute([$email, $code, $email]);
+
+    return false;
 }
 ?>

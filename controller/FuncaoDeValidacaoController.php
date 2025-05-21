@@ -1,36 +1,37 @@
 <?php
 
 session_start();
-require_once '../model/AuthModel.php';
+require_once '../model/FuncaoDeValidacaoModel.php';
 require_once '../service/conexao.php';
 
-// Verifica se o código foi submetido
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['codigo'])) {
-    $codigoInformado = $_POST['codigo'];
-    $email = $_SESSION['codigo_email'] ?? null;
 
-    if (!$email) {
-        $_SESSION['mensagem'] = "Sessão expirada ou email não informado!";
+if (isset($_POST['cod']) && isset($_POST['cod2']) && isset($_POST['cod3']) && isset($_POST['cod4']) && isset($_POST['cod5']) && isset($_POST['cod6'])){
+    
+    $codigo = $_POST['cod'] . $_POST['cod2'] . $_POST['cod3'] . $_POST['cod4'] . $_POST['cod5'] . $_POST['cod6'];
+}
+
+
+// Verifica se o código foi submetido
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($codigo)) {
+
+    if (!$codigo) {
+        $_SESSION['mensagem'] = "Código não informado!";
         header("Location: ../view/PHP/validacao.php");
         exit();
     }
 
     try {
-        $conn = new usePDO();
-        $instance = $conn->getInstance();
-
-        $sql = "SELECT * FROM code WHERE code = ? AND email = ? ORDER BY id_code DESC LIMIT 1";
-        $stmt = $instance->prepare($sql);
-        $stmt->execute([$codigoInformado, $email]);
-        $codigoDB = $stmt->fetch(PDO::FETCH_ASSOC);
+        $codigoDB = verificarCode($codigo);
 
         if ($codigoDB) {
             // Código válido
             $_SESSION['codigo_validado'] = true;
+            echo "validado com sucesso.";            
             header("Location: ../view/PHP/recuperacao.php"); 
             exit();
         } else {
             $_SESSION['mensagem'] = "Código inválido!";
+            echo "código invalido";
             header("Location: ../view/PHP/validacao.php");
             exit();
         }
@@ -41,8 +42,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['codigo'])) {
         exit();
     }
 
-} else {
-    $_SESSION['mensagem'] = "Código não fornecido!";
-    header("Location: ../view/PHP/validacao.php");
-    exit();
+
+
+} 
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['SenhaNova'])) { 
+
+$SenhaNova = $_POST['SenhaNova'];
+        $ConfirmarSenha = $_POST['confirm-senha'];
+
+        echo "entrada";
+        echo $SenhaNova;
+        echo $ConfirmarSenha;
+        if ($SenhaNova === $ConfirmarSenha) {
+            echo "senha são iguais"; 
+            $test = atualizarSenha($SenhaNova);
+            print_r($test);
+            if(atualizarSenha($SenhaNova)) {
+                unset($_SESSION['usuario']);
+                //header("Location: ../view/PHP/index.php?sucesso=1");
+                exit();
+            }
+        }
+
+        //header("Location: ../view/PHP/recuperacao.php?erro=1");
+        exit();
+
 }

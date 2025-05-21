@@ -13,12 +13,12 @@
     
         <div class="container">
             <h1>Atividade Jean</h1>
-        <form id="form" action="index.html" method="post" action="../../controller/FuncaoDeValidacaoController.php">
-                <label for="number">Nova senha:</label>
-                <input type="number" id="name" name="name" required><br><br>
-                <label for="email">Confirmar Senha:</label>
-                <input type="number" id="email" name="email" required>
-                <input type="submit" value="Alterar Senha" id="botao">
+        <form id="form" action="../../controller/FuncaoDeValidacaoController.php" method="post">
+                <label for="SenhaNova">Nova senha:</label>
+                <input type="password" id="name" name="SenhaNova" required><br><br>
+                <label for="Confirm-senha">Confirmar Senha:</label>
+                <input type="password" id="email" name="confirm-senha" required>
+                <button type="submit" value="Alterar Senha" id="botao">Alterar Senha</button>
         </div>  
 
         </form>

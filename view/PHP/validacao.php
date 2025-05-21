@@ -11,22 +11,28 @@
 </head>
 
 <body>
-        <div class="container">
-            <h1>Atividade Jean</h1>
-            <form class="formulario" action="index.html" method="post" Action="../../controller/FuncaoDeValidacaoController.php">
-                <div class="cubo">
-                    <input type="text" id="cod" name="cod" required><br><br>
-                    <input type="text" id="cod2" name="cod" required>
-                    <input type="text" id="cod3" name="cod" required><br><br>
-                    <input type="text" id="cod4" name="cod" required>
-                    <input type="text" id="cod5" name="cod" required><br><br>
-                    <input type="text" id="cod6" name="cod" required>
-                </div>
-                <div>
-                    <input type="button" value="Validar" id="botao">
-                </div>
-            </form> 
-        </div>
+    <div class="container">
+        <h1>Atividade Jean</h1>
+        <form class="formulario" Action="../../controller/FuncaoDeValidacaoController.php" method="post">
+            <div class="cubo">
+                <input type="text" id="cod" name="cod" required><br><br>
+                <input type="text" id="cod2" name="cod2" required>
+                <input type="text" id="cod3" name="cod3" required><br><br>
+                <input type="text" id="cod4" name="cod4" required>
+                <input type="text" id="cod5" name="cod5" required><br><br>
+                <input type="text" id="cod6" name="cod6" required>
+            </div>
+            <div>
+                <button type="submit" value="Validar" id="botao">Validar</button>
+            </div>
+            <?php
+            session_start();
+            if (!empty($_SESSION['mensagem'])): ?>
+                <p class="mensagemdeerro"><?= $_SESSION['mensagem'];
+                unset($_SESSION['mensagem']); ?></p>
+            <?php endif; ?>
+        </form>
+    </div>
 </body>
 
 </html>
