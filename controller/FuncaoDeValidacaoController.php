@@ -47,21 +47,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($codigo)) {
 } 
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['SenhaNova'])) { 
+if ($_SERVER['REQUEST_METHOD'] === 'POST'&& $_POST['Senha_Nova']) { 
 
-$SenhaNova = $_POST['SenhaNova'];
+$SenhaNova = $_POST['Senha_Nova'];
         $ConfirmarSenha = $_POST['confirm-senha'];
 
-        echo "entrada";
-        echo $SenhaNova;
-        echo $ConfirmarSenha;
         if ($SenhaNova === $ConfirmarSenha) {
-            echo "senha são iguais"; 
-            $test = atualizarSenha($SenhaNova);
-            print_r($test);
             if(atualizarSenha($SenhaNova)) {
                 unset($_SESSION['usuario']);
-                //header("Location: ../view/PHP/index.php?sucesso=1");
+                header("Location: ../view/PHP/index.php?sucesso=1");
                 exit();
             }
         }

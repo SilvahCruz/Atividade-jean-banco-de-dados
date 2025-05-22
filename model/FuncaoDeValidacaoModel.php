@@ -21,7 +21,6 @@ function atualizarSenha($SenhaNova) {
 
     $senha_hash = password_hash($SenhaNova, PASSWORD_DEFAULT);
         $email = $_SESSION['usuario']['email'];
-        print_r($_SESSION);
         $sql = "UPDATE usuario SET senha = ? WHERE email = ?";
         $stmt = $instance->prepare($sql);
         return $stmt->execute([$senha_hash, $email]);
