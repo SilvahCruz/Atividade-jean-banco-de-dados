@@ -60,7 +60,7 @@ $SenhaNova = $_POST['Senha_Nova'];
             }
         }
 
-        //header("Location: ../view/PHP/recuperacao.php?erro=1");
+        header("Location: ../view/PHP/recuperacao.php?erro=1");
         exit();
 
 }
